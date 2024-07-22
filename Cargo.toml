@@ -1,0 +1,12 @@
+[package]
+name = "pyjiff"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "pyjiff"
+crate-type = ["cdylib"]
+
+[dependencies]
+jiff = "0.1.0"
+pyo3 = "0.19.0"
