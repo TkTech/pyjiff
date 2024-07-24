@@ -13,5 +13,6 @@ jobs:
     with:
       python_version: ${{ matrix.python-version }}
       use_pytest: true
+      use_sphinx: true
       requirements: requirements.lock
       requirements_dev: requirements-dev.lock
