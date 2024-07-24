@@ -59,6 +59,10 @@ jobs:
           pip install -r requirements.lock
           pip install -r requirements-dev.lock
 
+      - name: Building documentation
+        run: |
+          cd docs && make clean html
+
       - name: Packaging documentation
         uses: actions/upload-pages-artifact@v3.0.1
         with:
