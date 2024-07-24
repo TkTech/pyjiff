@@ -1,0 +1,16 @@
+name: Tests
+
+on: [push]
+
+jobs:
+  test:
+    name: Testing
+    uses: tktech/python-standard/.github/workflows/test.yml@v1
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.8", "3.9", "3.10", "3.11", "3.12", pypy3.9]
+    with:
+      python_version: ${{ matrix.python-version }}
+      requirements: requirements.lock
+      requirements_dev: requirements-dev.lock

@@ -11,5 +11,4 @@ target/
 # venv
 .venv
 
-*.lock
 .idea

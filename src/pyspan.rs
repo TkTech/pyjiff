@@ -113,26 +113,50 @@ impl PySpan {
         self.inner.get_nanoseconds()
     }
 
+    /// is_zero() -> bool
+    /// --
+    ///
+    /// Returns true if the span is zero.
     fn is_zero(&self) -> bool {
         self.inner.is_zero()
     }
 
+    /// is_negative() -> bool
+    /// --
+    ///
+    /// Returns true if the span is negative.
     fn is_negative(&self) -> bool {
         self.inner.is_negative()
     }
 
+    /// negate() -> Span
+    /// --
+    ///
+    /// Returns a new span with the same magnitude but the opposite sign.
     fn negate(&self) -> PyResult<PySpan> {
         Ok(PySpan { inner: -self.inner })
     }
 
+    /// abs() -> Span
+    /// --
+    ///
+    /// Returns a new span with the same magnitude but always positive.
     fn abs(&self) -> PyResult<PySpan> {
         Ok(PySpan { inner: self.inner.abs() })
     }
 
+    /// __mul__(other: int) -> Span
+    /// --
+    ///
+    /// Returns a new span with the same magnitude but multiplied by the given integer.
     fn __mul__(&self, other: i64) -> PyResult<PySpan> {
         Ok(PySpan { inner: self.inner * other })
     }
 
+    /// __add__(other: Span) -> Span
+    /// --
+    ///
+    /// Returns a new span that is the sum of this span and the other span.
     fn __add__(&mut self, other: &mut PySpan) -> PyResult<PySpan> {
         let span = self.inner.checked_add(other.inner);
         match span {
@@ -141,6 +165,10 @@ impl PySpan {
         }
     }
 
+    /// __sub__(other: Span) -> Span
+    /// --
+    ///
+    /// Returns a new span equal to this span subtracted from the given span.
     fn __sub__(&mut self, other: &mut PySpan) -> PyResult<PySpan> {
         let span = self.inner.checked_sub(other.inner);
         match span {

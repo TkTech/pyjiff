@@ -34,6 +34,18 @@ impl PyZoned {
         }
     }
 
+    fn __lt__(&self, other: PyRef<'_, PyZoned>) -> PyResult<bool> {
+        Ok(self.inner < other.inner)
+    }
+
+    fn __gt__(&self, other: PyRef<'_, PyZoned>) -> PyResult<bool> {
+        Ok(self.inner > other.inner)
+    }
+
+    fn __eq__(&self, other: PyRef<'_, PyZoned>) -> PyResult<bool> {
+        Ok(self.inner == other.inner)
+    }
+
     fn __str__(&self) -> PyResult<String> {
         Ok(self.inner.to_string())
     }
