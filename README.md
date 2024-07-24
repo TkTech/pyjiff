@@ -3,10 +3,11 @@
 Python bindings for [Jiff][], a date-time library for Rust that
 encourages you to jump into the pit of success. 
 
-WIP, not ready for use, although all the Jiff readme examples
-work :) Come back in a week.
+## Documentation
 
-## Usage
+See https://tkte.ch/pyjiff/ for the most recent release documentation.
+
+## Example
 
 ```python
 from jiff import Zoned, Timestamp, Span
