@@ -9,7 +9,7 @@
 project = 'pyjiff'
 copyright = '2024, Tyler Kennedy'
 author = 'Tyler Kennedy'
-release = '0.1.0'
+release = '0.2.0'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
