@@ -71,6 +71,9 @@ jobs:
   publish_documentation:
     runs-on: ubuntu-latest
     needs: [build_documentation]
+    permissions:
+      id-token: write
+      pages: write
     environment:
       name: github-pages
     steps:
