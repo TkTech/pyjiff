@@ -43,8 +43,43 @@ jobs:
           name: cibw-sdist
           path: dist/*.tar.gz
 
+      - name: Building documentation
+        run: |
+          cd docs && make clean html
+
+  build_documentation:
+    name: Build documentation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.10
+
+      - name: Install Dev Dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install -r requirements-dev.txt
+
+      - name: Packaging documentation
+        uses: actions/upload-pages-artifact@v3.0.1
+        with:
+          path: docs/_build/html
+
+  publish_documentation:
+    runs-on: ubuntu-latest
+    needs: [build_documentation]
+    environment:
+      name: github-pages
+    steps:
+      - name: Publishing documentation
+        uses: actions/deploy-pages@v4
+        id: deployment
+
   upload_pypi:
-    needs: [build_wheels, build_sdist]
+    needs: [publish_documentation, build_wheels, build_sdist]
     runs-on: ubuntu-latest
     environment: pypi
     permissions:
