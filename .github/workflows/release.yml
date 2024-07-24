@@ -19,7 +19,7 @@ jobs:
         uses: pypa/cibuildwheel@v2.19.2
         env:
           CIBW_TEST_REQUIRES: "pytest"
-          CIBW_TEST_COMMAND: "pytest"
+          CIBW_TEST_COMMAND: "pytest {project}"
           CIBW_ENVIRONMENT_LINUX: "PATH=$HOME/.cargo/bin:$PATH"
           CIBW_BEFORE_ALL_LINUX: "curl -sSf https://sh.rustup.rs | sh -s -- -y"
           CIBW_BEFORE_ALL_WINDOWS: rustup target add i686-pc-windows-msvc
