@@ -5,12 +5,13 @@ on: [push]
 jobs:
   test:
     name: Testing
-    uses: tktech/python-standard/.github/workflows/test.yml@v1.0.3
+    uses: tktech/python-standard/.github/workflows/test.yml@v1.1.0
     strategy:
       fail-fast: false
       matrix:
         python-version: ["3.8", "3.9", "3.10", "3.11", "3.12", pypy3.9]
     with:
       python_version: ${{ matrix.python-version }}
+      use_pytest: true
       requirements: requirements.lock
       requirements_dev: requirements-dev.lock
