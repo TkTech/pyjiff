@@ -5,7 +5,7 @@ on: [push]
 jobs:
   test:
     name: Testing
-    uses: tktech/python-standard/.github/workflows/test.yml@v1
+    uses: tktech/python-standard/.github/workflows/test.yml@v1.0.3
     strategy:
       fail-fast: false
       matrix:
