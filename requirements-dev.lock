@@ -12,7 +12,10 @@
 -e file:.
 alabaster==0.7.16
     # via sphinx
+arrow==1.3.0
+    # via times
 babel==2.15.0
+    # via delorean
     # via sphinx
 beautifulsoup4==4.12.3
     # via furo
@@ -20,9 +23,14 @@ certifi==2024.7.4
     # via requests
 charset-normalizer==3.3.2
     # via requests
+dateparser==1.2.0
+    # via moment
+delorean==1.0.0
 docutils==0.21.2
     # via sphinx
 furo==2024.7.18
+humanize==4.10.0
+    # via delorean
 idna==3.7
     # via requests
 imagesize==1.4.1
@@ -33,18 +41,38 @@ jinja2==3.1.4
     # via sphinx
 markupsafe==2.1.5
     # via jinja2
+moment==0.12.1
 packaging==24.1
     # via pytest
     # via sphinx
+pendulum==3.0.0
 pip==24.1.2
 pluggy==1.5.0
     # via pytest
+py-cpuinfo==9.0.0
+    # via pytest-benchmark
 pygments==2.18.0
     # via furo
     # via sphinx
 pytest==8.3.1
+    # via pytest-benchmark
+pytest-benchmark==4.0.0
+python-dateutil==2.9.0.post0
+    # via arrow
+    # via dateparser
+    # via delorean
+    # via pendulum
+    # via time-machine
+pytz==2024.1
+    # via dateparser
+    # via delorean
+    # via moment
+regex==2024.7.24
+    # via dateparser
 requests==2.32.3
     # via sphinx
+six==1.16.0
+    # via python-dateutil
 snowballstemmer==2.2.0
     # via sphinx
 soupsieve==2.5
@@ -66,5 +94,16 @@ sphinxcontrib-qthelp==1.0.8
     # via sphinx
 sphinxcontrib-serializinghtml==1.1.10
     # via sphinx
+time-machine==2.14.2
+    # via pendulum
+times==0.7
+    # via moment
+types-python-dateutil==2.9.0.20240316
+    # via arrow
+tzdata==2024.1
+    # via pendulum
+tzlocal==5.2
+    # via dateparser
+    # via delorean
 urllib3==2.2.2
     # via requests
